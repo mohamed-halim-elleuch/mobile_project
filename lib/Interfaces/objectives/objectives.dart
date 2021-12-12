@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Interfaces/objectives/mission.dart';
 import 'package:flutter_application_1/data.dart';
 import 'package:flutter_application_1/function_class/gest_detector.dart';
+import 'package:flutter_application_1/models/ObjectiveExplorer.dart';
+import 'package:flutter_application_1/services/dbservices.dart';
 
 class Story extends StatefulWidget {
   final String image;
@@ -10,7 +13,9 @@ class Story extends StatefulWidget {
   final double size;
   late var missiondata;
   final int id;
-  Story(this.image, this.missiondata, this.image2, this.size, this.id);
+  String title;
+
+  Story(this.image, this.missiondata, this.image2, this.size, this.id,this.title);
   @override
   _StoryState createState() => _StoryState();
 }
@@ -67,7 +72,7 @@ class _StoryState extends State<Story> {
                             widget.missiondata['badge'],
                             widget.image,
                             widget.image2,
-                            widget.missiondata['obj'][widget.id]);
+                            widget.missiondata['obj'][widget.id],widget.title);
                       },
                       fullscreenDialog: true,
                     ),
@@ -99,6 +104,7 @@ class _ContState extends State<Cont> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
+    var user = FirebaseAuth.instance.currentUser;
     return Container(
       color: Colors.black.withOpacity(0.1),
       height: (height - 73) / 3,
@@ -124,7 +130,7 @@ class _ContState extends State<Cont> {
                   width: height / 5.7,
                 ),
                 Text(
-                  widget.title,
+                  widget.title + ' Stage',
                   style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -138,13 +144,15 @@ class _ContState extends State<Cont> {
             child: Row(
                 children: DUMMY_MISSIONS.map((e) {
               return Story(e.image, e.missiondata, widget.etoile, widget.taille,
-                  widget.id);
+                  widget.id,widget.title);
             }).toList()),
           ),
         ],
       ),
     );
   }
+
+
 }
 
 class Objective extends StatefulWidget {
@@ -160,11 +168,11 @@ class _ObjectiveState extends State<Objective> {
       SizedBox(
         height: MediaQuery.of(context).size.height / 40,
       ),
-      Cont('assets/mostakchef.png', 'Explorer Stage', 'assets/1etoile.png', 40,
+      Cont('assets/mostakchef.png', 'Explorer', 'assets/1etoile.png', 40,
           0),
-      Cont('assets/mo8amer.png', 'Adventurer Stage', 'assets/2etoile.png', 70,
+      Cont('assets/mo8amer.png', 'Adventurer', 'assets/2etoile.png', 70,
           1),
-      Cont('assets/ra7ala.png', 'Nomadic Stage', 'assets/3etoile.png', 100, 2),
+      Cont('assets/ra7ala.png', 'Nomadic', 'assets/3etoile.png', 100, 2),
     ]);
   }
 }

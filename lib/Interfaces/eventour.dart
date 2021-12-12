@@ -64,6 +64,7 @@ class _EventOurState extends State<EventOur> {
     }
   }
 
+
   void validation() {
     if (title.text
         .trim()

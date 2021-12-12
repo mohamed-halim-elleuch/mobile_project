@@ -1,7 +1,10 @@
 
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/ObjectiveExplorer.dart';
+import 'package:flutter_application_1/services/dbservices.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart';
 import 'FieldTextMission.dart';
@@ -11,9 +14,9 @@ import 'file.dart';
 class MissionDefinition extends StatefulWidget {
 
   Function checkbox;
+  var button;
   final String question;
 
-  Function button;
   MissionDefinition(this.question,this.checkbox,this.button);
   @override
   _MissionDefinitionState createState() => _MissionDefinitionState();
@@ -34,7 +37,7 @@ class _MissionDefinitionState extends State<MissionDefinition> {
             children: [
               Container(
                 width: width - 100 / 2,
-                height: width,
+                height: width*1.1,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(25.0)), //
                   color: Colors.white,
@@ -105,7 +108,8 @@ class _MissionDefinitionState extends State<MissionDefinition> {
                     SizedBox(height:width/15),
                     button(val: "Submit", onTap: (){
                       setState(() {
-                        widget.button;
+
+                          widget.button();
                       });
                     }),
                   ],

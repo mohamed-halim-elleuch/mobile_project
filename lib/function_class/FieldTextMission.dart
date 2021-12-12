@@ -9,12 +9,14 @@ class TextFieldMission extends StatelessWidget {
       { required this.name,
          required this.size,
         required this.line,
+        //required this.controller,
       });
   @override
   Widget build(BuildContext context) {
     return Container(
       width: size,
       child: TextFormField(
+
         maxLines: line,
         textAlign: TextAlign.center,
         //controller: controller,

@@ -12,6 +12,7 @@ import 'package:flutter_application_1/function_class/navigation%20bar.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
+import '../../APImaps.dart';
 import '../signIn.dart';
 
 class Menu extends StatefulWidget {
@@ -138,7 +139,10 @@ class _MenuState extends State<Menu> {
                 ),
                 Column(
                   children: [
-                    Gest_detector("Friends", () {}),
+                    Gest_detector("Location", () {
+                      Navigator.pushNamed(context, '/location');
+
+                    }),
                     SizedBox(
                       height: 10,
                     ),

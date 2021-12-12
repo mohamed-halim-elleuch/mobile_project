@@ -92,7 +92,7 @@ class _Card4State extends State<Card4> {
                             ),
                             likeBuilder: (bool isLiked) {
                               return Icon(
-                                Icons.thumb_up,
+                                Icons.favorite,
                                 color: isLiked ? Colors.red : Colors.grey,
                                 size: 25,
                               );

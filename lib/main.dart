@@ -11,6 +11,8 @@ import 'package:flutter_application_1/Interfaces/signUp_member.dart';
 import 'package:flutter_application_1/function_class/navigation%20bar.dart';
 import 'package:provider/provider.dart';
 
+import 'APImaps.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
             '/signup_admin': (context) => const SignUpAdmin(),
             '/navigation': (context) => Navigationbar(),
             '/logout': (context) => SignIn(),
+            '/location': (context) =>  MapSample(),
           },
         ),
       );

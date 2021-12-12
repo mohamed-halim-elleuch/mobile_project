@@ -93,7 +93,7 @@ const DUMMY_MISSIONS = const [
     ]
   }),
   Mission(image: 'assets/5.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Chef badge',
     'obj': [
       			[
       				'He mentions the types of fire, explains their characteristics, and prepares models and models for them',
@@ -116,7 +116,7 @@ const DUMMY_MISSIONS = const [
     ]
   }),
   Mission(image: 'assets/6.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Tracker Badge',
     'obj': [
       			[
       				'Explains the importance of tracing and its techniques',
@@ -137,7 +137,7 @@ const DUMMY_MISSIONS = const [
     ]
   }),
   Mission(image: 'assets/7.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'vector badge , determine the dimensions and heights',
     'obj': [
       			[
       				'Defines the components of the compass and their importance',
@@ -158,7 +158,7 @@ const DUMMY_MISSIONS = const [
     ]
   }),
   Mission(image: 'assets/8.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Map Learner Badge and road signs',
     'obj': [
 		      	[
 			      	'Shows a road on the map with the use of the compass in it',
@@ -179,7 +179,7 @@ const DUMMY_MISSIONS = const [
     ]
   }),
   Mission(image: 'assets/9.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Signal Addressee Badge',
     'obj': [
 			    [
 			        'Proficient in the use of rally signals and calls',
@@ -200,7 +200,7 @@ const DUMMY_MISSIONS = const [
     ]
   }),
   Mission(image: 'assets/10.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Akkad Badge',
     'obj': [
 			    [
 			      	'Distinguish between knots, ties, and cycles',
@@ -221,7 +221,7 @@ const DUMMY_MISSIONS = const [
 			]
   }),
   Mission(image: 'assets/11.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Screws badge',
     'obj': 	[
 			    [
 			      	"He is fluent in 5 shouts and 4 scouting songs",
@@ -243,7 +243,7 @@ const DUMMY_MISSIONS = const [
 			]
   }),
   Mission(image: 'assets/12.png', missiondata: {
-    'badge': 'Roaming badge',
+    'badge': 'Camp badge',
     'obj': 	[
 			      	['Shows the various elements of the art of camping',
 'Prepares a list of personal and group equipment for the last week of camp',

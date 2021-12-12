@@ -63,7 +63,7 @@ class _ProfilesState extends State<Profiles> {
           future: _fetch(),
           builder: (context, snapshot){
             if (snapshot.connectionState != ConnectionState.done){
-              return Text('data');
+              return Center(child:CircularProgressIndicator(color: Colors.black));
             }else{
               return Profile(places:place, Date_of_joining_the_camping_academy: Date_of_joining_the_camping_academy, group: group, The_current_scouting_plan_of_the_squad: The_current_scouting_plan_of_the_squad,
                 region: region, Dateofscoot: Dateofscoot, squad: squad, tel: tel, birthday: birthday, telparent: telparent, adress: adress, vanguard: vanguard,

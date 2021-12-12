@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 class Testeventor extends StatefulWidget {
   final String title;
@@ -99,8 +100,38 @@ class _Card3State extends State<Card3> {
                       onPressed: () {
                         // Perform some action
                       },
-                      child: const Text('Participate',
-                          style: TextStyle(fontSize: 20)),
+                      child: LikeButton(
+                        size: 25,
+                        circleColor:
+                        CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                        bubblesColor: BubblesColor(
+                          dotPrimaryColor: Color(0xff33b5e5),
+                          dotSecondaryColor: Color(0xff0099cc),
+                        ),
+                        likeBuilder: (bool isLiked) {
+                          return Icon(
+                            Icons.favorite,
+                            color: isLiked ? Colors.red : Colors.grey,
+                            size: 25,
+                          );
+                        },
+                        likeCount: 0,
+                        /*countBuilder: (int count, bool isLiked, String text) {
+                              var color = isLiked ? Colors.deepPurpleAccent : Colors.grey;
+                              Widget result;
+                              if (count == 0) {
+                                result = Text(
+                                  "love",
+                                  style: TextStyle(color: color),
+                                );
+                              } else
+                                result = Text(
+                                  text,
+                                  style: TextStyle(color: color),
+                                );
+                              return result;
+                            },*/
+                      ),
                     ),
                     actions: [
                       IconButton(

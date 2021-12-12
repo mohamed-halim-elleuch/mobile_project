@@ -46,7 +46,6 @@ class _NavigationbarState extends State<Navigationbar> {
           TabItem(icon: Icons.supervised_user_circle, title: 'User'),
           TabItem(icon: Icons.message, title: 'Message'),
           TabItem(icon: Icons.check, title: 'Objectives'),
-          TabItem(icon: Icons.map, title: 'MAP'),
         ],
         initialActiveIndex: selectedPage, //optional, default as 0
         onTap: (int index) {

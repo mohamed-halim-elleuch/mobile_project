@@ -35,7 +35,7 @@ class _WeatherState extends State<Weather> {
   String dropdownValue = 'Tunis';
 
   Future<void> getWeather(String localisation) async {
-    String url = "http://192.168.1.108:8000/api/$localisation";
+    String url = "http://192.168.1.109:8000/api/$localisation";
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       setState(() {
@@ -78,8 +78,10 @@ class _WeatherState extends State<Weather> {
       print(place);
 
       setState(() {
-        _currentAddress = "${place.locality}";
-        //localisation = _currentAddress;
+        _currentAddress = "${place.administrativeArea}";
+        localisation = _currentAddress;
+        getWeather(localisation);
+        dropdownValue = localisation;
         print(_currentAddress);
         //await SendLocation(localisation);
         //await getWeather(localisation);
@@ -166,7 +168,7 @@ class _WeatherState extends State<Weather> {
         },
         items: <String>[
           'Ariana',
-          'Béja',
+          'Beja',
           'Ben Arous',
           'Bizerte',
           'Gabès',

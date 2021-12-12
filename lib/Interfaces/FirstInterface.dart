@@ -83,7 +83,8 @@ class _FirstInterfaceState extends State<FirstInterface> {
                       onPressed: () {
                         final provider = Provider.of<GoogleSignInProvider>(context,listen:false);
                         provider.googleLogin();
-                        Navigator.pushNamed(context, '/signin');
+
+                       // Navigator.pushNamed(context, '/signin');
                       },
                       icon: FaIcon(FontAwesomeIcons.google),
                       iconSize: 40,

@@ -85,63 +85,71 @@ class _MissionState extends State<Mission> {
                   textAlign: TextAlign.justify,
                 )),
             SizedBox(height: width / 30),
-            MissionDefinition(widget.fixedLengthList[0], () {},(){DatabaseService()
-                .addFavoriteMission(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email, mission: missionreplce(widget.title)), user!.uid,widget.title);}),
-            MissionDefinition(widget.fixedLengthList[1], () {},(){DatabaseService()
-                .addFavoriteMission(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email, mission: missionreplce(widget.title)), user!.uid,widget.title);}),
-            MissionDefinition(widget.fixedLengthList[2], () {},(){DatabaseService()
-                .addFavoriteMission(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email, mission: missionreplce(widget.title)), user!.uid,widget.title);}),
-            MissionDefinition(widget.fixedLengthList[3], () {},(){DatabaseService()
-                .addFavoriteMission(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email, mission: missionreplce(widget.title)), user!.uid,widget.title);}),
+            MissionDefinition(widget.fixedLengthList[0], () {},(date,place,svpl,sl){DatabaseService()
+                .addFavoriteMission1(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
+                question1: missionreplce(widget.title,date,place,svpl,sl),
+            question2: missionreplce(widget.title,date,place,svpl,sl),
+            question3: missionreplce(widget.title,date,place,svpl,sl),
+            question4: missionreplce(widget.title,date,place,svpl,sl)),
+                user!.uid,widget.title);},'question 1'),
+            MissionDefinition(widget.fixedLengthList[1], () {},(date,place,svpl,sl){DatabaseService()
+                .addFavoriteMission2(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
+                question1: missionreplce(widget.title,date,place,svpl,sl),
+                question2: missionreplce(widget.title,date,place,svpl,sl),
+                question3: missionreplce(widget.title,date,place,svpl,sl),
+                question4: missionreplce(widget.title,date,place,svpl,sl)),
+                user!.uid,widget.title);},'question 2'),
+            MissionDefinition(widget.fixedLengthList[2], () {},(date,place,svpl,sl){DatabaseService()
+                .addFavoriteMission3(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
+                question1: missionreplce(widget.title,date,place,svpl,sl),
+                question2: missionreplce(widget.title,date,place,svpl,sl),
+                question3: missionreplce(widget.title,date,place,svpl,sl),
+                question4: missionreplce(widget.title,date,place,svpl,sl)),
+                user!.uid,widget.title);},'question 3'),
+            MissionDefinition(widget.fixedLengthList[3], () {},(date,place,svpl,sl){DatabaseService()
+                .addFavoriteMission4(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
+                question1: missionreplce(widget.title,date,place,svpl,sl),
+                question2: missionreplce(widget.title,date,place,svpl,sl),
+                question3: missionreplce(widget.title,date,place,svpl,sl),
+                question4: missionreplce(widget.title,date,place,svpl,sl)
+            ), user!.uid,widget.title);},'question 4'),
           ]),
         )));
   }
-  Map<dynamic,dynamic> missionreplce(String badget){
-    //late Map<dynamic,dynamic> missionbadge={};
-    var missionbadge = new Map();
-    var badge=['Roaming badge','Observer badge','Eco badge','Paramedic badge','Chef badge','Tracker Badge','vector badge , determine the dimensions and heights','Map Learner Badge and road signs','Signal Addressee Badge', 'Akkad Badge','Screws badge','Camp badge'];
+  var badge = [
+    'Roaming badge',
+    'Observer badge',
+    'Eco badge',
+    'Paramedic badge',
+    'Chef badge',
+    'Tracker Badge',
+    'vector badge , determine the dimensions and heights',
+    'Map Learner Badge and road signs',
+    'Signal Addressee Badge',
+    'Akkad Badge',
+    'Screws badge',
+    'Camp badge'
+  ];
 
-    for (String i in badge) {
+        Map<dynamic, dynamic> missionreplce(String badget,date,place,svpl,sl ) {
 
-      missionbadge['$i'] = {'question 1':
-        {
-          'commentaire': "$i",
-          'date': "",
-          'place': "",
-          'squad leader': '',
-          'supervisor leader': ''
-        },'question 2':
-        {
-          'commentaire': "tgtrg",
-          'date': "aaaaaaaa",
-          'place': "",
-          'squad leader': '',
-          'supervisor leader': ''
-        },'question 3':
-        {
-          'commentaire': "",
-          'date': "",
-          'place': "",
-          'squad leader': '',
-          'supervisor leader': ''
-        },'question 4':
-        {
-          'commentaire': "",
-          'date': "",
-          'place': "",
-          'squad leader': '',
-          'supervisor leader': ''
-        }
-      };
+          //late Map<dynamic,dynamic> missionbadge={};
+          var missionbadge = new Map();
 
 
-    }
+          for (String i in badge) {
+            missionbadge['$i'] =
+            {
+              'commentaire': "",
+              'date': date.text.trim(),
+              'place': place.text.trim(),
+              'squad leader': sl.text.trim(),
+              'supervisor leader': svpl.text.trim()
+            };
+          }
 
-
-
-    return(missionbadge[badget]);
-
+print(missionbadge[badget]);
+    return (missionbadge[badget]);
   }
-
 
 }

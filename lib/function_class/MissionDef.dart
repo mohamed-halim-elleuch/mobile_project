@@ -17,13 +17,14 @@ class MissionDefinition extends StatefulWidget {
   var button;
   final String question;
   var idd;
+  var niveau;
+  var badge;
 
-
-  MissionDefinition(this.question,this.checkbox,this.button,this.idd);
+  MissionDefinition(this.question, this.checkbox, this.button, this.idd,
+      this.niveau, this.badge);
 
   @override
   _MissionDefinitionState createState() => _MissionDefinitionState();
-
 }
 
 class _MissionDefinitionState extends State<MissionDefinition> {
@@ -36,131 +37,81 @@ class _MissionDefinitionState extends State<MissionDefinition> {
   Future<void> loadData(idd) async {
     var user = FirebaseAuth.instance.currentUser;
     var docSnapshot = await FirebaseFirestore.instance
-    .collection('objective1')
-        .doc('Explorer').
-    collection('Roaming badge').
-    doc(user!.uid).
-    get();
+        .collection('objective1')
+        .doc(widget.niveau)
+        .collection(widget.badge)
+        .doc(user!.uid)
+        .get();
     var data = docSnapshot.data();
     setState(() {
-
-      //print(data.values.map((e) => print(e)));
-      /*var List = data;
-
-      try{
-        switch(idd){
-          case 1:{
-            squad_leader.text = List['question 1'] ['squad leader'];
-            place.text = List[1]['place'];
-            date.text = List[1]['date'];
-            supervisor.text = List[1]['supervisor leader'];
-            commentaire.text = List[1]['commentaire'];
-          }break;
-          case 2:{
-            squad_leader.text = List[2]['squad leader'];
-            place.text = List[2]['place'];
-            date.text = List[2]['date'];
-            supervisor.text = List[2]['supervisor leader'];
-            commentaire.text = List[2]['commentaire'];
-          }break;
-          case 3:{
-            squad_leader.text = List[3]['squad leader'];
-            place.text = List[3]['place'];
-            date.text = List[3]['date'];
-            supervisor.text = List[3]['supervisor leader'];
-            commentaire.text = List[3]['commentaire'];
-          }break;
-          case 4:{
-            squad_leader.text = List[4]['squad leader'];
-            place.text = List[4]['place'];
-            date.text = List[4]['date'];
-            supervisor.text = List[4]['supervisor leader'];
-            commentaire.text = List[4]['commentaire'];
-          }break;
-
-        }*/
-
-      /*for(var i in data!.keys){
-        try{
-          switch(idd) {
-            case 1:
+      for (var i in data!.keys) {
+        try {
+          switch (idd) {
+            case 'question 1':
               {
-                squad_leader.text = List['question 1'] ['squad leader'];
-                place.text = List[1]['place'];
-                date.text = List[1]['date'];
-                supervisor.text = List[1]['supervisor leader'];
-                commentaire.text = List[1]['commentaire'];
+                if (i == 'question 1') {
+                  squad_leader.text = data[i]['squad leader'];
+                  place.text = data[i]['place'];
+                  date.text = data[i]['date'];
+                  supervisor.text = data[i]['supervisor leader'];
+                  commentaire.text = data[i]['commentaire'];
+                }
               }
               break;
-            case 2:
+            case 'question 2':
               {
-                squad_leader.text = List[2]['squad leader'];
-                place.text = List[2]['place'];
-                date.text = List[2]['date'];
-                supervisor.text = List[2]['supervisor leader'];
-                commentaire.text = List[2]['commentaire'];
+                if (i == 'question 2') {
+                  squad_leader.text = data[i]['squad leader'];
+                  place.text = data[i]['place'];
+                  date.text = data[i]['date'];
+                  supervisor.text = data[i]['supervisor leader'];
+                  commentaire.text = data[i]['commentaire'];
+                }
               }
               break;
-            case 3:
+            case 'question 3':
               {
-                squad_leader.text = List[3]['squad leader'];
-                place.text = List[3]['place'];
-                date.text = List[3]['date'];
-                supervisor.text = List[3]['supervisor leader'];
-                commentaire.text = List[3]['commentaire'];
+                if (i == 'question 3') {
+                  squad_leader.text = data[i]['squad leader'];
+                  place.text = data[i]['place'];
+                  date.text = data[i]['date'];
+                  supervisor.text = data[i]['supervisor leader'];
+                  commentaire.text = data[i]['commentaire'];
+                }
               }
               break;
-            case 4:
+            case 'question 4':
               {
-                squad_leader.text = List[4]['squad leader'];
-                place.text = List[4]['place'];
-                date.text = List[4]['date'];
-                supervisor.text = List[4]['supervisor leader'];
-                commentaire.text = List[4]['commentaire'];
+                if (i == 'question 4') {
+                  squad_leader.text = data[i]['squad leader'];
+                  place.text = data[i]['place'];
+                  date.text = data[i]['date'];
+                  supervisor.text = data[i]['supervisor leader'];
+                  commentaire.text = data[i]['commentaire'];
+                }
               }
               break;
           }
-          }catch(e){print(e);}
-      }*/
-      //
-      //birthday.text.trim() = document.data().toString()['birthday']
+        } catch (e) {
+          print(e);
+        }
+      }
     });
   }
-
-  /*Future<void> singlebadge(String objectiveID) async {
-    CollectionReference _objective1 = FirebaseFirestore.instance.collection('objective1');
-    final doc = await _objective1.doc(objectiveID).get();
-    var question1;
-    //objectiveID: objectiveID,
-    objectiveUserID: doc.get('objectiveUserID');
-    question1= doc.get('question 1');
-    question2: doc.get('question 2');
-    question3: doc.get('question 3');
-    question4: doc.get('question 4');
-
-    return;
-  }*/
-
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-     print('categorie: '+widget.idd.toString());
-     loadData(widget.idd);
+    print('categorie: ' + widget.idd.toString());
+    loadData(widget.idd);
     //place.text = data;
   }
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final double height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     /*void OpenFiles(List<PlatformFile> files) =>
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => FilePage (
           files: files,
@@ -268,13 +219,12 @@ class _MissionDefinitionState extends State<MissionDefinition> {
                 line: 3,
                 controller: commentaire,
               ),
-
               SizedBox(height: width / 15),
               button(
                   val: "Submit",
                   onTap: () {
                     setState(() {
-                      widget.button(date,place,supervisor,squad_leader);
+                      widget.button(date, place, supervisor, squad_leader);
                       print(date);
                     });
                   }),
@@ -296,5 +246,3 @@ class _MissionDefinitionState extends State<MissionDefinition> {
 
     return File(file.path!).copy(newFile.path);*/
 }
-
-

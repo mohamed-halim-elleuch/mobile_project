@@ -91,28 +91,28 @@ class _MissionState extends State<Mission> {
             question2: missionreplce(widget.title,date,place,svpl,sl),
             question3: missionreplce(widget.title,date,place,svpl,sl),
             question4: missionreplce(widget.title,date,place,svpl,sl)),
-                user!.uid,widget.title);},'question 1'),
+                user.uid,widget.title);},'question 1'),
             MissionDefinition(widget.fixedLengthList[1], () {},(date,place,svpl,sl){DatabaseService()
                 .addFavoriteMission2(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
                 question1: missionreplce(widget.title,date,place,svpl,sl),
                 question2: missionreplce(widget.title,date,place,svpl,sl),
                 question3: missionreplce(widget.title,date,place,svpl,sl),
                 question4: missionreplce(widget.title,date,place,svpl,sl)),
-                user!.uid,widget.title);},'question 2'),
+                user.uid,widget.title);},'question 2'),
             MissionDefinition(widget.fixedLengthList[2], () {},(date,place,svpl,sl){DatabaseService()
                 .addFavoriteMission3(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
                 question1: missionreplce(widget.title,date,place,svpl,sl),
                 question2: missionreplce(widget.title,date,place,svpl,sl),
                 question3: missionreplce(widget.title,date,place,svpl,sl),
                 question4: missionreplce(widget.title,date,place,svpl,sl)),
-                user!.uid,widget.title);},'question 3'),
+                user.uid,widget.title);},'question 3'),
             MissionDefinition(widget.fixedLengthList[3], () {},(date,place,svpl,sl){DatabaseService()
                 .addFavoriteMission4(ObjectiveExplorer(objectiveID: widget.categorie, objectiveUserID: user!.email,
                 question1: missionreplce(widget.title,date,place,svpl,sl),
                 question2: missionreplce(widget.title,date,place,svpl,sl),
                 question3: missionreplce(widget.title,date,place,svpl,sl),
                 question4: missionreplce(widget.title,date,place,svpl,sl)
-            ), user!.uid,widget.title);},'question 4'),
+            ), user.uid,widget.title);},'question 4'),
           ]),
         )));
   }

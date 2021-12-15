@@ -25,7 +25,7 @@ class _NavigationbarState extends State<Navigationbar> {
     Menu(),
     Settings(),
     Profiles(),
-    Friends(),
+    ChatScreen(),
     Objective(),
     MapSample(),
 

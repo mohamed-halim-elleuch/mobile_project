@@ -561,6 +561,7 @@ import 'package:flutter_application_1/function_class/buttons.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Profile extends StatefulWidget {
+  late String FullName = 'FullName';
   late String places = 'Place';
   late String birthday = 'Birthday';
   late String telparent = 'Home Tel';
@@ -578,6 +579,7 @@ class Profile extends StatefulWidget {
   //late String image;
 
   Profile({
+    required this.FullName,
     required this.places,
     required this.birthday,
     required this.telparent,
@@ -598,6 +600,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   late UserCredential userCredential;
+  TextEditingController FullName = TextEditingController();
   TextEditingController place = TextEditingController();
   TextEditingController Telparent = TextEditingController();
   TextEditingController tel = TextEditingController();
@@ -632,6 +635,7 @@ class _ProfileState extends State<Profile> {
             .collection("userData")
             .doc(user.uid.toString());
         return await documentReference.update({
+          "FullName": FullName.text.trim(),
           "place": place.text.trim(),
           "Telparent": Telparent.text.trim(),
           "tel": tel.text.trim(),
@@ -651,6 +655,7 @@ class _ProfileState extends State<Profile> {
             .collection("userData")
             .doc(user.uid.toString());
         return await documentReference.set({
+          "FullName": FullName.text.trim(),
           "place": place.text.trim(),
           "Telparent": Telparent.text.trim(),
           "tel": tel.text.trim(),
@@ -664,12 +669,29 @@ class _ProfileState extends State<Profile> {
           "birthday": birthday.text.trim(),
           "squad": squad.text.trim(),
           'image': images.path,
-        });
+        }
+
+
+        );
+
       }
     }
   }
 
   void validation() {
+    if (FullName.text.trim().isEmpty || FullName.text.trim() == '') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.grey[200],
+          content: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Please Enter Your Full Name !',
+                  style:
+                  TextStyle(color: Colors.red, fontWeight: FontWeight.bold))
+            ],
+          )));
+      return;
+    }
     if (birthday.text.trim().isEmpty || birthday.text.trim() == '') {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.grey[200],
@@ -912,6 +934,7 @@ class _ProfileState extends State<Profile> {
       print('data: ' + data.toString());
       //print(data.values.map((e) => print(e)));
       var List = data!.values.toList();
+
       birthday.text = List[0];
       images = File(List[1].toString());
       dateofjoining.text = List[2];
@@ -919,13 +942,13 @@ class _ProfileState extends State<Profile> {
       Dateofscoot.text = List[4];
       Telparent.text = List[5];
       squad.text = List[6];
-      tel.text = List[7];
-      place.text = List[8];
-      region.text = List[9];
-      vanguard.text = List[10];
-      plan.text = List[11];
-      group.text = List[12];
-
+      FullName.text = List[7];
+      tel.text = List[8];
+      place.text = List[9];
+      region.text = List[10];
+      vanguard.text = List[11];
+      plan.text = List[12];
+      group.text = List[13];
       print('start: ' + imgUrl);
       //birthday.text.trim() = document.data().toString()['birthday']
     });
@@ -974,6 +997,12 @@ class _ProfileState extends State<Profile> {
             ),
           ]),
           //RaisedButton(onPressed: ,child: Text("Change picture"),),
+          MyTextFieldProfile(
+            name: widget.FullName,
+            color: Colors.white,
+            width: 500,
+            controller: FullName,
+          ),
           Row(
             children: [
               MyTextFieldProfile(
@@ -1083,8 +1112,8 @@ class _ProfileState extends State<Profile> {
                 print(imgUrl);
 
                 setState(() {
-                  sendData();
-                  //loadData();
+                  validation();
+
                 });
               }),
           SizedBox(height: 30),

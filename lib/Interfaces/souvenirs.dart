@@ -237,9 +237,9 @@ class _SouvenirsState extends State<Souvenirs> {
 
                           },
 
-                            icon: Icon(Icons.download_rounded),
+                            icon: Icon(Icons.upload),
                             iconSize: 30,
-                            color: Color(0xff03dac6),),
+                            color: Colors.black),
 
                         ],
                       ),

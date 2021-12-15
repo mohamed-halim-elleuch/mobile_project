@@ -14,7 +14,6 @@ class SignUpmember extends StatefulWidget {
 }
 class _SignUpmemberState extends State<SignUpmember> {
   late UserCredential userCredential;
-  TextEditingController fullName = TextEditingController();
   TextEditingController Repassword = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -29,7 +28,6 @@ class _SignUpmemberState extends State<SignUpmember> {
               email: email.text, password: password.text);
       await FirebaseFirestore.instance.collection('userData').add({
         'userid': userCredential.user?.uid,
-        'FullName': fullName.text.trim(),
         'email': email.text.trim(),
         'password': password.text.trim(),
 
@@ -173,14 +171,6 @@ class _SignUpmemberState extends State<SignUpmember> {
                       )
                     ],
                   ),
-                  MyTextField(
-                    name: "Full name",
-                    obscure: false,
-                    icon: Icons.supervised_user_circle_rounded,
-                    controller: fullName,
-
-                  ),
-
                   MyTextField(
                     name: "Email",
                     obscure: false,

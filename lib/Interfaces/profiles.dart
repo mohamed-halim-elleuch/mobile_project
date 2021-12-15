@@ -13,6 +13,7 @@ class Profiles extends StatefulWidget {
 }
 
 class _ProfilesState extends State<Profiles> {
+  late String FullName='FullName';
   late String place=' Place';
   late String birthday ='Birthday';
   late String telparent ='Home Tel';
@@ -35,6 +36,7 @@ class _ProfilesState extends State<Profiles> {
           .doc(id)
           .get()
           .then((value){
+            FullName= value.data()!['FullName'];
         place = value.data()!['place'];
         birthday  = value.data()!['birthday'];
         telparent = value.data()!['Telparent'];
@@ -66,7 +68,7 @@ class _ProfilesState extends State<Profiles> {
               return Center(child:CircularProgressIndicator(color: Colors.black));
             }else{
               return Profile(places:place, Date_of_joining_the_camping_academy: Date_of_joining_the_camping_academy, group: group, The_current_scouting_plan_of_the_squad: The_current_scouting_plan_of_the_squad,
-                region: region, Dateofscoot: Dateofscoot, squad: squad, tel: tel, birthday: birthday, telparent: telparent, adress: adress, vanguard: vanguard,
+                region: region, Dateofscoot: Dateofscoot, squad: squad, tel: tel, birthday: birthday, telparent: telparent, adress: adress, vanguard: vanguard,FullName:FullName,
 
 
               );

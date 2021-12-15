@@ -34,11 +34,12 @@ class MessageBubble extends StatelessWidget {
                 Text(
                   userName + " :",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
+
                     color: !isMe
-                        ? Colors.black
-                        : Colors.black,
+                        ? Colors.blue
+                        : Colors.white,
                   ),
                 ),
                 Text(

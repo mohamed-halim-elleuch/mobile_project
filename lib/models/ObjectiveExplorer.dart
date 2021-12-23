@@ -16,11 +16,5 @@ class ObjectiveExplorer {
         required this.question3,
         required this.question4,
 
-        /*required this.badge,
-        required this.comment,
-        required this.date,
-        required this.place,
-        required this.squadLeader,
-        required this.supervisorLeader,*/
         });
 }

@@ -1,17 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Interfaces/objectives/mission.dart';
-import 'package:flutter_application_1/data.dart';
-import 'package:flutter_application_1/function_class/googlesignin.dart';
-import 'package:flutter_application_1/home.dart';
-import 'package:flutter_application_1/Interfaces/choose.dart';
-import 'package:flutter_application_1/Interfaces/signIn.dart';
-import 'package:flutter_application_1/Interfaces/signUp_Admin.dart';
-import 'package:flutter_application_1/Interfaces/signUp_member.dart';
-import 'package:flutter_application_1/function_class/navigation%20bar.dart';
+import 'package:flutter_application_1/view_models/mission.dart';
+import 'package:flutter_application_1/data/data.dart';
+import 'package:flutter_application_1/views/home.dart';
+import 'package:flutter_application_1/views/choose.dart';
+import 'package:flutter_application_1/services/signIn.dart';
+import 'package:flutter_application_1/services/signUp_Admin.dart';
+import 'package:flutter_application_1/services/signUp_member.dart';
+import 'package:flutter_application_1/services/googlesignin.dart';
+import 'package:flutter_application_1/view_models/navigation%20bar.dart';
 import 'package:provider/provider.dart';
 
-import 'APImaps.dart';
+import 'services/APImaps.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
